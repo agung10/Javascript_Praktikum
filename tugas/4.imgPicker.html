@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #e8e8e8;
+        }
+
+        select {
+            width: 130px;
+            padding: 7px 25px;
+            margin: 0 45%;
+            display: block;
+            text-align: -webkit-center;
+            font-size: 15px;
+        }
+
+        .img-hewan {
+            margin: 40px 0;
+            display: block;
+            text-align: -webkit-center;
+        }
+
+        img {
+            width: 450px;
+            height: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-hewan">
+        <img src="../img/gajah.png" alt="gambar hewan" id="gambar">
+    </div>
+
+    <select name="hewan" id="hewan" onchange="pilih()">
+        <option value="gajah">Gajah</option>
+        <option value="kuda">Kuda</option>
+        <option value="jerapah">Jerapah</option>
+        <option value="harimau">Harimau</option>
+        <option value="singa">Singa</option>
+        <option value="kucing">Kucing</option>
+    </select>
+</body>
+
+<script>
+    function pilih() {
+        let list_hewan = document.getElementById("hewan")
+        let selected = list_hewan.selectedIndex + 1
+        console.log("Gambar ke " + selected + " adalah " + list_hewan[selected - 1].value + ".png");
+        
+        let gambar = document.getElementById("gambar")
+        gambar.src="../img/"+list_hewan[selected - 1].value+".png"
+
+        alert("Gambar ke " + selected + " adalah " + list_hewan[selected - 1].value + ".png");
+    }
+</script>
+</html>
